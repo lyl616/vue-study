@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <my-aaa></my-aaa>
+</div>
+<script>
+
+    var Aaa = Vue.extend({
+        template: "<h3>我是标题3{{msg}}</h3>",
+        data:function () {
+            return{msg :"dd"}
+        }
+    });
+
+
+    new Vue({
+        el: '#box',
+        data: {},
+        components  : {
+            'my-aaa': Aaa
+        }
+
+    });
+</script>
+</body>
+</html>

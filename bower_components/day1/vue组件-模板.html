@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue/dist/vue.js"></script>
+    <script type="x-template" id="aa">
+        <h2 @click="change">标题2>>{{msg}}</h2>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <my-aaa></my-aaa>
+</div>
+<script>
+
+
+    new Vue({
+        el: '#box',
+        data: {},
+        components: {
+            'my-aaa': {
+                template: "#aa",
+                data: function () {
+                    return {msg: "我是标题2"}
+                },methods:{
+                    change:function () {
+                        this.msg="chaged";
+                    }
+                }
+            }
+        }
+
+    });
+</script>
+</body>
+</html>

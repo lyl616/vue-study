@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <aa></aa>
+</div>
+<script>
+
+    var Aaa = Vue.extend({
+        data: function () {
+            return {msg: "我是msg"}
+        }, methods: {
+            change: function () {
+                this.msg = "chenged";
+            }
+        },
+        template: "<h3 @click='change'>{{msg}}</h3>"
+    });
+    Vue.component("aa", Aaa);
+    new Vue({
+        el: '#box',
+        data: {}
+
+    });
+</script>
+</body>
+</html>

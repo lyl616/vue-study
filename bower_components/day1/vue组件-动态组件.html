@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue/dist/vue.js"></script>
+
+
+    <template id="aa">
+        <h2 @click="change">标题2>>{{msg}}</h2>
+        <ul>
+           <li v-for="val in arr">{{val}}</li>
+        </ul>
+    </template>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <input type="button" @click="a='aaa'" value="aaa组件">
+    <input type="button" @click="a='bbb'" value="组件">
+    <component :is="a"></component>
+</div>
+<script>
+
+
+    new Vue({
+        el: '#box',
+        data: {
+            a:'aaa'
+        },
+        components: {
+            'aaa': {
+                template: "#aa",
+                data: function () {
+                    return {
+                        msg: "我是标题aaa",
+                        arr: ["张三", "王五", "赵六"]
+                    }
+                }, methods: {
+                    change: function () {
+                        this.msg = "chaged";
+                    }
+                }
+            }, 'bbb': {
+                template: "#aa",
+                data: function () {
+                    return {
+                        msg: "我是标题bbb",
+                        arr: ["张三", "王五", "赵六"]
+                    }
+                }, methods: {
+                    change: function () {
+                        this.msg = "chaged";
+                    }
+                }
+            }
+        }
+
+    });
+</script>
+</body>
+</html>
