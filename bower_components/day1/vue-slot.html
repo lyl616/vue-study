@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue/dist/vue.js"></script>
+
+
+
+    <script type="x-template" id="aa">
+        <h2 @click="change">标题2>>{{msg}}</h2>
+        <slot>这是默认情况</slot>
+        <span>welcome vue slot</span>
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <my-aaa>
+        <ul>
+            <li>1111111111111</li>
+            <li>22222222</li>
+            <li>333333333333</li>
+            <li>4444444444</li>
+            <li>5555555</li>
+        </ul><ul>
+            <li>1111111111111</li>
+            <li>22222222</li>
+            <li>333333333333</li>
+            <li>4444444444</li>
+            <li>5555555</li>
+        </ul>
+    </my-aaa>
+    <my-aaa></my-aaa>
+</div>
+<script>
+
+
+    new Vue({
+        el: '#box',
+        data: {},
+        components: {
+            'my-aaa': {
+                template: "#aa",
+                data: function () {
+                    return {msg: "我是标题2"}
+                },methods:{
+                    change:function () {
+                        this.msg="chaged";
+                    }
+                }
+            }
+        }
+
+    });
+</script>
+</body>
+</html>
